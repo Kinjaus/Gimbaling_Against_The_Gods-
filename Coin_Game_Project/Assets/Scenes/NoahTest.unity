@@ -449,7 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _angleOffset: {x: 0, y: 0, z: 0}
   _crosshare: {fileID: 511004659}
-  _coinPrefab: {fileID: 6524799453109468483, guid: e0dfe544185384e9c9e9e349dbebe27b, type: 3}
+  _coinPrefab: {fileID: 3764200446349554061, guid: defc7d851641ba2439b8a121c5c5bc6a, type: 3}
 --- !u!81 &1504923380
 AudioListener:
   m_ObjectHideFlags: 0
