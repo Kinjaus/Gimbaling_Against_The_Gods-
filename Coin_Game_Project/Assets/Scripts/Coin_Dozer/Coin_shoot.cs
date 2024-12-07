@@ -16,7 +16,7 @@ public class Coin_shoot : MonoBehaviour
     {
         Cursor.visible = true;
         _layerMask = LayerMask.GetMask("ShootZone"); //Items allowing the raycast to hit.
-        _ammoCount = _ammoCap;
+        Reload();
     }
 
     // Update is called once per frame
