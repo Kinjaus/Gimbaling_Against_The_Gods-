@@ -25,48 +25,61 @@ public class Coin_shoot : MonoBehaviour
         if (_ammoCount == 0)
         {
             Debug.Log("Turn Over");
-            _ammoCount = _ammoCap;
+            Reload();
         }
         else { 
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                GetCoinType("CopperCoin");
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                GetCoinType("SilverCoin");
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                GetCoinType("GoldCoin");
-            }
-
+            ChangeShot();
             if (Input.GetMouseButtonDown(0))
             {
-                _ammoCount--;
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))
-                {
-                    //Debug.DrawRay(transform.position,transform.TransformDirection(Vector3.forward)*hit.distance, Color.yellow);
-                    var _rotation = _coinPrefab.transform.rotation;
-                    _rb = _coinPrefab.GetComponent<Rigidbody>();
-
-
-                    var _coin = Instantiate(_coinPrefab, Camera.main.transform.position, _rotation);
-                    _rb = _coin.GetComponent<Rigidbody>();
-                    _rb.isKinematic = false;
-
-                    var _coinAngle = hit.point - Camera.main.transform.position + _angleOffset;
-                    Debug.Log(ray);
-                    _coin.GetComponent<Rigidbody>().AddForce(_coinAngle, ForceMode.Impulse);
-                }
+                ShootCoin();
             }
         }
     }
 
+    void ShootCoin()
+    {
+        _ammoCount--;
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))
+        {
+            //Debug.DrawRay(transform.position,transform.TransformDirection(Vector3.forward)*hit.distance, Color.yellow);
+            var _rotation = _coinPrefab.transform.rotation;
+            _rb = _coinPrefab.GetComponent<Rigidbody>();
+
+
+            var _coin = Instantiate(_coinPrefab, Camera.main.transform.position, _rotation);
+            _rb = _coin.GetComponent<Rigidbody>();
+            _rb.isKinematic = false;
+
+            var _coinAngle = hit.point - Camera.main.transform.position + _angleOffset;
+            Debug.Log(ray);
+            _coin.GetComponent<Rigidbody>().AddForce(_coinAngle, ForceMode.Impulse);
+        }
+    }
+    void Reload()
+    {
+        _ammoCount = _ammoCap;
+    }
+    void ChangeShot()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            GetCoinType("CopperCoin");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            GetCoinType("SilverCoin");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            GetCoinType("GoldCoin");
+        }
+    }
     void GetCoinType (string name)
     {
         _coinPrefab = GameObject.Find(name);
     }
+
+
 }
