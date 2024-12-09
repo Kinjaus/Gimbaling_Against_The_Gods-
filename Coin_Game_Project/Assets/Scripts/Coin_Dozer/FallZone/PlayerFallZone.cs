@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class PlayerFallZone : _FallZone
 {
+    HealthManager healthManager;
     // Start is called before the first frame update
+    private void Start()
+    {
+        healthManager = GameObject.Find("Health_Manager").GetComponent<HealthManager>();
+    }
     public override void ResolveCoin(GameObject other)
     {
-        switch (other.tag)
+        var coinType = other.GetComponent<Coin>().type;
+        
+        switch (coinType)
         {
-            case "copper":
-                break;
-            case "silver":
-                break;
-            case "gold":
-                break;
-            case "bad":
+            case CoinType.Enemy:
+                healthManager.DamagePlayer();
                 break;
             default:
+                healthManager.DamageEnemy(other.GetComponent<Coin>());
                 break;
 
         }

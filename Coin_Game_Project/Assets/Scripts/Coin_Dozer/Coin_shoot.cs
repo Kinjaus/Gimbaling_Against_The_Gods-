@@ -43,11 +43,12 @@ public class Coin_shoot : MonoBehaviour
 
     void ShootCoin()
     {
-        _ammoCount--;
+        
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))
         {
+            _ammoCount--;
             //Debug.DrawRay(transform.position,transform.TransformDirection(Vector3.forward)*hit.distance, Color.yellow);
             var _rotation = _coinPrefab.transform.rotation;
             _rb = _coinPrefab.GetComponent<Rigidbody>();
