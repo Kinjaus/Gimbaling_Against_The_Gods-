@@ -80,7 +80,7 @@ public class HealthManager : MonoBehaviour
             //call the end of the round and reward or start next game
         }
 
-        ehpBar.fillAmount = eHP / eMaxHP;
+        ehpBar.fillAmount = (float)eHP / (float)eMaxHP;
     }
 
     #endregion

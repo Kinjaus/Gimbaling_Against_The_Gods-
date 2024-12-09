@@ -8,11 +8,11 @@ public class PlayerFallZone : _FallZone
     // Start is called before the first frame update
     private void Start()
     {
-        healthManager = GameObject.Find("Health_Manager").GetComponent<HealthManager>();
+        healthManager =  FindObjectOfType<HealthManager>();
     }
     public override void ResolveCoin(GameObject other)
     {
-        var coinType = other.GetComponent<Coin>().type;
+        var coinType = other.gameObject.GetComponent<Coin>().type;
         
         switch (coinType)
         {
