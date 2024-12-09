@@ -1457,10 +1457,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f258c201af87457fbf1e7d6416107b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pHP: 0
+  pHP: 20
   pMaxHP: 20
   phpBar: {fileID: 0}
-  eHP: 0
+  eHP: 40
   eMaxHP: 40
   ehpBar: {fileID: 0}
   weakness: 0
