@@ -12,6 +12,9 @@ public class Coin_shoot : MonoBehaviour
     Rigidbody _rb;
     public int _ammoCap = 3;
     int _ammoCount;
+    public GameObject _enemyCoinSpwan;
+    bool _playerTurn = true;
+
     void Start()
     {
         Cursor.visible = true;
@@ -22,8 +25,10 @@ public class Coin_shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_ammoCount == 0)
+        if (_ammoCount == 0 && _playerTurn)
         {
+            _playerTurn = false;
+            _enemyCoinSpwan.GetComponent<EnemyCoinSpawner>().IsEnemyTurn = true;
             Debug.Log("Turn Over");
             Reload();
         }
@@ -81,5 +86,9 @@ public class Coin_shoot : MonoBehaviour
         _coinPrefab = GameObject.Find(name);
     }
 
-
+    public bool PlayerTurn
+    {
+        get { return _playerTurn; }
+        set { _playerTurn = value; }
+    }
 }

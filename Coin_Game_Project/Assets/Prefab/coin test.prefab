@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8299893948225465899}
   - component: {fileID: 8072865837929606110}
   - component: {fileID: 2491627557949535774}
+  - component: {fileID: 8315688760912241002}
   m_Layer: 0
   m_Name: coin test
-  m_TagString: Untagged
+  m_TagString: bad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +93,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6524799453109468483}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3a2fcb2e0d2e9c84ea8c23b363208ee5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -133,3 +134,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8315688760912241002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6524799453109468483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bab7adbc7228a847b2259a36b6ee2d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _force: {x: 0, y: -10, z: -15}
